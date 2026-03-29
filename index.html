@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البوابة الرسمية | الجامعة الوطنية لقطاع الفوسفاط UNTM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --untm-green: #006633;
+            --fnsp-orange: #f58220;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo img { height: 50px; }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--untm-green); }
+
+        .btn-join-nav {
+            background: var(--untm-green);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,102,51,0.9) 0%, rgba(0,60,30,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80'); /* Industrial Background */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 5% 150px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
+
+        /* --- STATS SECTION --- */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: -80px;
+            padding: 0 5%;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 250px;
+            border-bottom: 5px solid var(--fnsp-orange);
+        }
+
+        .stat-card i { font-size: 2.5rem; color: var(--untm-green); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 1.5rem; margin: 0; color: var(--dark); }
+
+        /* --- REGISTRATION PORTAL --- */
+        .portal-section { padding: 80px 5%; background: var(--light); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--untm-green); position: relative; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; width: 80px; height: 4px; background: var(--fnsp-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .portal-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .form-side h3 { margin-top: 0; color: var(--untm-green); border-right: 4px solid var(--fnsp-orange); padding-right: 15px; }
+        
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 700; margin-bottom: 8px; }
+        .input-group input { 
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Cairo'; 
+            transition: var(--transition);
+        }
+        .input-group input:focus { outline: none; border-color: var(--untm-green); box-shadow: 0 0 0 3px rgba(0,102,51,0.1); }
+
+        .preview-side {
+            background: #eee;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* --- ID CARD CSS (From previous prompt) --- */
+        .id-card {
+            width: 85.6mm; height: 53.98mm; background: white !important; border-radius: 3.5mm;
+            border: 0.8mm solid var(--fnsp-orange) !important; overflow: hidden; display: flex;
+            flex-direction: column; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: scale(1.1); /* Slightly larger in preview */
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        .header { height: 12mm; display: flex; justify-content: space-between; align-items: center; padding: 1.5mm 3.5mm; }
+        .logo-img { height: 9.5mm; width: 9.5mm; object-fit: contain; }
+        .header-text h1 { font-size: 7.5pt; margin: 0; color: var(--untm-green) !important; font-weight: 900; line-height: 1.1; text-align: center;}
+        .header-text h2 { font-size: 6pt; margin: 0; color: var(--fnsp-orange) !important; font-weight: 800; text-align: center;}
+        .card-content { height: 32mm; display: flex; padding: 1.5mm 3.5mm; gap: 4mm; align-items: center; }
+        .photo-space { width: 18.5mm; height: 23mm; border: 0.5mm solid var(--fnsp-orange) !important; border-radius: 1mm; overflow: hidden; background: #fdfdfd !important; }
+        .photo-space img { width: 100%; height: 100%; object-fit: cover; }
+        .info-row { margin-bottom: 1.2mm; border-bottom: 0.1mm solid #eee !important; }
+        .info-row .label { font-size: 4.8pt; color: #777 !important; font-weight: 700; display: block; }
+        .info-row .value { font-size: 7.5pt; font-weight: 800; color: #1a1a1a !important; display: block; }
+        .footer { height: 10mm; background-color: var(--untm-green) !important; color: white !important; text-align: center; display: flex; flex-direction: column; justify-content: center; border-top: 0.6mm solid var(--fnsp-orange) !important; margin-top: auto; }
+        .footer-motto { font-size: 6.8pt; color: var(--fnsp-orange) !important; font-weight: 900; }
+        .footer-validity { font-size: 5pt; }
+
+        .btn-print {
+            background: var(--untm-green); color: white; border: none; padding: 15px 40px;
+            border-radius: 10px; font-weight: 900; cursor: pointer; font-size: 1.1rem;
+            margin-top: 40px; width: 100%; transition: var(--transition);
+        }
+        .btn-print:hover { background: #004d26; transform: translateY(-2px); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: white; padding: 60px 5% 20px; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-logo img { height: 60px; margin-bottom: 20px; }
+        .footer-links h4 { color: var(--fnsp-orange); margin-bottom: 20px; }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; opacity: 0.8; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #333; font-size: 0.9rem; opacity: 0.6; }
+
+        /* --- PRINT --- */
+        @media print {
+            nav, .hero, .stats, .section-title, .form-side, footer, .btn-print, h3 { display: none !important; }
+            body { background: white; padding: 0; }
+            .portal-section { background: white; padding: 0; }
+            .portal-container { box-shadow: none; padding: 0; display: block; }
+            .preview-side { background: white; padding: 0; }
+            .id-card { transform: scale(1); margin-bottom: 10mm; page-break-after: always; }
+        }
+
+        @media (max-width: 992px) {
+            .portal-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .stats { flex-direction: column; align-items: center; }
+            .stat-card { width: 100%; max-width: 350px; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-logo">
+            <img src="UNTM-2767-2012-09-18j.jpg" alt="UNTM">
+            <img src="486278465_1196330119158481_1624707448916714405_n.jpg" alt="FNSP">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#portal">طلب البطاقة</a></li>
+            <li><a href="#">الأنشطة</a></li>
+            <li><a href="#" class="btn-join-nav">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>الجامعة الوطنية لقطاع الفوسفاط</h1>
+        <p>البيت النقابي لعمال ومستخدمي قطاع الفوسفاط بالمغرب. نناضل من أجل الكرامة، العدالة الاجتماعية، وتحصين المكتسبات التاريخية للشغيلة.</p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="#portal" style="background: var(--fnsp-orange); color: white; text-decoration: none; padding: 15px 35px; border-radius: 8px; font-weight: 900;">سجل الآن</a>
+            <a href="#" style="background: white; color: var(--untm-green); text-decoration: none; padding: 15px 35px; border-radius: 8px; font-weight: 900;">تعرف علينا</a>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h3>+5000 منخرط</h3>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-handshake"></i>
+            <h3>وحدة وتضامن</h3>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>دفاع مستميت</h3>
+        </div>
+    </div>
+
+    <!-- REGISTRATION PORTAL -->
+    <section class="portal-section" id="portal">
+        <div class="section-title">
+            <h2>بوابة استخراج بطاقة الانخراط 2026</h2>
+            <p>يرجى ملء البيانات بدقة للحصول على بطاقتك النقابية الرسمية</p>
+        </div>
+
+        <div class="portal-container">
+            <!-- Form Side -->
+            <div class="form-side">
+                <h3>معلومات المنخرط</h3>
+                <div class="input-group">
+                    <label>الإسم الكامل</label>
+                    <input type="text" id="in-name" placeholder="أدخل الإسم الكامل هنا..." oninput="updateCard()">
+                </div>
+                <div class="input-group">
+                    <label>رقم الإنخراط / Matricule</label>
+                    <input type="text" id="in-service" placeholder="مثال: 45890" oninput="updateCard()">
+                </div>
+                <div class="input-group">
+                    <label>موقع العمل</label>
+                    <input type="text" id="in-site" placeholder="مثال: خريبكة / الجرف الأصفر" oninput="updateCard()">
+                </div>
+                <div class="input-group">
+                    <label>الصورة الشخصية</label>
+                    <input type="file" id="in-photo" accept="image/*" onchange="previewImage(event)">
+                    <small style="color: #666;">يفضل صورة بخلفية بيضاء (Portrait)</small>
+                </div>
+                <button class="btn-print" onclick="window.print()">
+                    <i class="fas fa-print"></i> تحميل وطباعة البطاقة
+                </button>
+            </div>
+
+            <!-- Preview Side -->
+            <div class="preview-side">
+                <h4 style="margin: 0; color: #555;">معاينة حية للبطاقة</h4>
+                
+                <!-- FRONT CARD -->
+                <div class="id-card">
+                    <div class="header">
+                        <img src="UNTM-2767-2012-09-18j.jpg" class="logo-img" alt="UNTM">
+                        <div class="header-text">
+                            <h1>الإتحاد الوطني للشغل بالمغرب</h1>
+                            <h2>الجامعة الوطنية لقطاع الفوسفاط</h2>
+                        </div>
+                        <img src="486278465_1196330119158481_1624707448916714405_n.jpg" class="logo-img" alt="FNSP">
+                    </div>
+
+                    <div class="card-content">
+                        <div class="photo-space">
+                            <img id="card-photo" src="https://via.placeholder.com/150" alt="Member Photo">
+                        </div>
+                        <div class="info-details">
+                            <div class="info-row">
+                                <span class="label">الإسم الكامل : </span>
+                                <span class="value" id="val-name">.............................</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">رقم الإنخراط / service : </span>
+                                <span class="value" id="val-service">2026 / FNSP / ....</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">موقع العمل : </span>
+                                <span class="value" id="val-site">...................................</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <div class="footer-motto">نضال، إستقامة، مسؤولية</div>
+                        <div class="footer-validity">بطاقة صالحة لسنة: 2027 - 2026</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.8rem; color: #888;">سيتم توليد رمز QR تلقائياً خلف البطاقة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <img src="UNTM-2767-2012-09-18j.jpg" alt="UNTM">
+                <p>الجامعة الوطنية لقطاع الفوسفاط عضو في الإتحاد الوطني للشغل بالمغرب. نؤمن بالعمل النقابي المسؤول والشراكة الاجتماعية الحقيقية.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#" style="color: white; text-decoration: none;">عن الجامعة</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">البلاغات الرسمية</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">قوانين المنظمة</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>المقر المركزي</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> الرباط، المملكة المغربية</li>
+                    <li><i class="fas fa-phone"></i> +212 5XX XX XX XX</li>
+                    <li><i class="fas fa-envelope"></i> contact@untm-fnsp.ma</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 الجامعة الوطنية لقطاع الفوسفاط - UNTM. جميع الحقوق محفوظة.
+        </div>
+    </footer>
+
+    <script>
+        function updateCard() {
+            const name = document.getElementById('in-name').value;
+            const service = document.getElementById('in-service').value;
+            const site = document.getElementById('in-site').value;
+
+            document.getElementById('val-name').innerText = name || ".............................";
+            document.getElementById('val-service').innerText = service ? `2026 / FNSP / ${service}` : "2026 / FNSP / ....";
+            document.getElementById('val-site').innerText = site || "...................................";
+        }
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('card-photo');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
